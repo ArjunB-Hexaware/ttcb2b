@@ -16,7 +16,7 @@ var mailer = {
 			  from: 'hexatestmailer@gmail.com',
 			  to: 'arjunbhexaware@gmail.com',
 			  subject:'Target Audience',
-			  text: 'Hi ,<div>Greetings from <b>TTC</b>!!</div><div> Please find attached the target audience for your area</div>',
+			  html: 'Hi ,<div>Greetings from <b>TTC</b>!!</div><div> Please find attached the target audience for your area</div>',
 			  attachments:[
 				{
 					filename:fileName,
@@ -31,10 +31,7 @@ var mailer = {
 					reject(error);
 				} else {
 					console.log(info.response);
-					resolve({
-						"speech": "Mail has been sent to you registered emailID",
-						"displayText":"Mail has been sent to you registered emailID"
-					});
+					resolve(body);
 				}
 			});
 		});
