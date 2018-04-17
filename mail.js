@@ -2,7 +2,7 @@ var nodemailer 	= require('nodemailer');
 var fs 			= require('fs');
 var path		= require('path');	
 var mailer = {
-	mailTargetAudience:function(toAddress, month, mainContent,attachmentFile){
+	mailTargetAudience:function(attachmentFile){
 		return new Promise(function(resolve, reject){
 			var transporter = nodemailer.createTransport({
 				service: 'gmail',
@@ -20,7 +20,7 @@ var mailer = {
 			  attachments:[
 				{
 					filename:fileName,
-					content:fs.createReadStream(attachmentFile)		
+					content:fs.createReadStream('Target-audience.xlsx')		
 				}
 			  ]
 			};
