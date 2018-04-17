@@ -20,7 +20,7 @@ var mailer = {
 			  attachments:[
 				{
 					filename:fileName,
-					content:fs.createReadStream('Target-audience.xlsx')		
+					content:fs.createReadStream('ClientData.xlsx')		
 				}
 			  ]
 			};

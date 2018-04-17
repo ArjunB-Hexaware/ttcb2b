@@ -9,6 +9,7 @@ This file is part of the Innovation LAB - Offline Bot.
 define({    
 
     chatServerURL : "https://ttcb2b.herokuapp.com/dialogflowAPI",
+  //chatServerURL : "http://localhost:3002/dialogflowAPI",
 	accessToken:"123445",
     applicationTitle: "TTCB2C",
     userTitle : "Me",
