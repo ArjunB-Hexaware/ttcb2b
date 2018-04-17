@@ -59,7 +59,10 @@ mailPackageDetails:function(){
 				reject(error);
 			} else {
 				console.log(info.response);
-				resolve(info.response);
+				resolve({
+					"speech": "",
+					"displayText":""
+				});
 			}
 		});
 	});
