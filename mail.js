@@ -2,7 +2,7 @@ var nodemailer 	= require('nodemailer');
 var fs 			= require('fs');
 var path		= require('path');	
 var mailer = {
-	mailTargetAudience:function(attachmentFile){
+	mailTargetAudience:function(reqBody){
 		return new Promise(function(resolve, reject){
 			console.log("------------------------mailTargetAudience--------------------");
 			var transporter = nodemailer.createTransport({
@@ -31,7 +31,7 @@ var mailer = {
 					console.log(error);
 					reject(error);
 				} else {
-					resolve(body);
+					resolve(reqBody);
 				}
 			});
 		});
