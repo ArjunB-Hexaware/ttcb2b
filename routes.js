@@ -86,7 +86,18 @@ var easyQuote = function(reqBody){
 }
 
 var validatePartnerCode=function(reqBody){
-	console.log("IM IN------------>validatePartnerCode");
+	if(reqBody.number.result.parameters.number.length == 8){
+		resolve({		
+			"speech": "",
+			"displayText":""
+		});
+	}else{
+		resolve({		
+			"speech": "Partner code should be a 8 digit number",
+			"displayText":"Partner code should be a 8 digit number"
+			
+		});
+	}
 }
 
 module.exports = router;
