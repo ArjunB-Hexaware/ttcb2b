@@ -103,6 +103,7 @@ var validatePartnerCode=function(reqBody){
 		});
 	});
 }
+}
 
 module.exports = router;
 
