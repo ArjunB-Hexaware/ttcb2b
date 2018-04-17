@@ -4,7 +4,8 @@ var router			= express.Router();
 var fs 				= require("fs");	
 var request			= require('request');
 var path			= require("path");	
-var email           = require("./mail.js")
+var email           = require("./mail.js");
+
 
 //var Authentication = require('./utilities/Authentication');
 
@@ -29,7 +30,7 @@ router.post('/botHandler',/*Authentication.SetRealm('botHandler'), Authenticatio
 			case 'feedBackOptionsIntent':func = feedBackOptionsIntent;break;
 			case 'feedBackNoIntent':func = feedBackNoIntent; break;
 			case 'chooseOptions': func = validatePartnerCode; break;
-			case 'emailDetails - yes': func = sendPackageDetails; break;
+			case 'emailDetails - yes': func = email.mailPackageDetails; break;
 		}
 		func(req.body)
 		.then((resp)=>{
@@ -106,34 +107,7 @@ var validatePartnerCode=function(reqBody){
 }
 }
 
-var sendPackageDetails=function(reqBody){
-	return new Promise(function(resolve, reject){
-		var transporter = nodemailer.createTransport({
-			service: 'gmail',
-			auth: {
-				user: 'hexatestmailer@gmail.com',
-				pass: 'a###W14&$'
-			}
-		});
-		
-		var mailOptions = {
-		  from: 'hexatestmailer@gmail.com',
-		  to: 'arjunbhexaware@gmail.com',
-		  subject: 'Package details',
-		  text: "Find attached the following details"
-		};
 
-		transporter.sendMail(mailOptions, function(error, info){
-			if (error) {
-				console.log(error);
-				reject(error);
-			} else {
-				console.log(info.response);
-				resolve(info.response);
-			}
-		});
-	});
-}
 
 module.exports = router;
 
