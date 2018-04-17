@@ -32,8 +32,8 @@ var mailer = {
 				} else {
 					console.log(info.response);
 					resolve({
-						"speech": "",
-						"displayText":""
+						"speech": "Mail has been sent to you registered emailID",
+						"displayText":"Mail has been sent to you registered emailID"
 					});
 				}
 			});
@@ -63,8 +63,8 @@ mailPackageDetails:function(){
 			} else {
 				console.log(info.response);
 				resolve({
-					"speech": "",
-					"displayText":""
+					"speech": "Mail has been sent to you registered emailID",
+						"displayText":"Mail has been sent to you registered emailID"
 				});
 			}
 		});
