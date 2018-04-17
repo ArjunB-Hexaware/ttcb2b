@@ -86,7 +86,7 @@ var easyQuote = function(reqBody){
 }
 
 var validatePartnerCode=function(reqBody){
-	if(reqBody.number.result.parameters.number.length == 8){
+	if(reqBody.result.parameters.number.length == 8){
 		resolve({		
 			"speech": "",
 			"displayText":""
