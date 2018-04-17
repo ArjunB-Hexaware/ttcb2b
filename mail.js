@@ -2,7 +2,7 @@ var nodemailer 	= require('nodemailer');
 var fs 			= require('fs');
 var path		= require('path');	
 var mailer = {
-	sendMail:function(toAddress, month, mainContent,attachmentFile){
+	mailTargetAudience:function(toAddress, month, mainContent,attachmentFile){
 		return new Promise(function(resolve, reject){
 			var transporter = nodemailer.createTransport({
 				service: 'gmail',
@@ -11,12 +11,12 @@ var mailer = {
 					pass: 'a###W14&$'
 				}
 			});
-			var fileName = 'invoices_'+month+'2017.pdf';
+			var fileName = 'Target-audience.xlsx';
 			var mailOptions = {
 			  from: 'hexatestmailer@gmail.com',
-			  to: 'SouradeepR@hexaware.com, venkateshlk@hexaware.com,  BH@hexaware.com',
-			  subject: month + ' month bill',
-			  text: mainContent,
+			  to: 'arjunbhexaware@gmail.com',
+			  subject:'Target Audience',
+			  text: 'Hi ,<div>Greetings from <b>TTC</b>!!</div><div> Please find attached the target audience for your area</div>',
 			  attachments:[
 				{
 					filename:fileName,

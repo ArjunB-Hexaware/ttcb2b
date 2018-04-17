@@ -31,6 +31,7 @@ router.post('/botHandler',/*Authentication.SetRealm('botHandler'), Authenticatio
 			case 'feedBackNoIntent':func = feedBackNoIntent; break;
 			case 'chooseOptions': func = validatePartnerCode; break;
 			case 'emailDetails - yes': func = email.mailPackageDetails; break;
+			case 'emailDetails - yes - yes': func = email.mailTargetAudience; break;
 		}
 		func(req.body)
 		.then((resp)=>{
