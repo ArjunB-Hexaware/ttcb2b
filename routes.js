@@ -53,11 +53,24 @@ var getIntent=function(body){
 	return new Promise(function(resolve, reject){
 	var intentName =body.result.metadata.intentName;
 	console.log("+++++++++++++++++++Intentname ++++++++++++++",intentName);
-	switch(intentName){
-		case 'chooseOptions': if(emailPackageFlag == 0){ emailPackageFlag=emailPackageFlag+1;func = validatePartnerCode;}else{ emailPackageFlag=0;} break;
-		case 'emailDetails - yes': if(emailAudienceFlag == 0){emailAudienceFlag=emailAudienceFlag+1;func = email.mailPackageDetails;}else{ emailAudienceFlag=0;} break;
+/*	switch(intentName){
+		case 'chooseOptions':  func = validatePartnerCode; break;
+		case 'emailDetails - yes': func = email.mailPackageDetails; break;
 		case 'emailDetails - yes - yes': func = email.mailTargetAudience; break;
 		default: resolve(body);break; 
+	}*/
+	if(intentName == 'chooseOptions'){
+		func = validatePartnerCode;
+	}else{
+		if(intentName == 'emailDetails - yes'){
+			func = email.mailPackageDetails;
+		}else{
+			if(intentName == 'emailDetails - yes - yes'){
+				func = email.mailTargetAudience;
+			}else{
+				resolve(body);
+			}
+		}
 	}
 	func(body)
 	.then((resp)=>{
