@@ -86,7 +86,7 @@ var easyQuote = function(reqBody){
 }
 
 var validatePartnerCode=function(reqBody){
-	console.log(reqBody);
+	console.log("IM IN------------>validatePartnerCode");
 }
 
 module.exports = router;
