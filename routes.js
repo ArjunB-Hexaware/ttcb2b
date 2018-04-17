@@ -4,7 +4,7 @@ var router			= express.Router();
 var fs 				= require("fs");	
 var request			= require('request');
 var path			= require("path");	
-
+var email           = require("./mail.js")
 
 //var Authentication = require('./utilities/Authentication');
 
@@ -29,6 +29,7 @@ router.post('/botHandler',/*Authentication.SetRealm('botHandler'), Authenticatio
 			case 'feedBackOptionsIntent':func = feedBackOptionsIntent;break;
 			case 'feedBackNoIntent':func = feedBackNoIntent; break;
 			case 'chooseOptions': func = validatePartnerCode; break;
+			case 'emailDetails - yes': func = sendPackageDetails; break;
 		}
 		func(req.body)
 		.then((resp)=>{
@@ -103,6 +104,10 @@ var validatePartnerCode=function(reqBody){
 		});
 	});
 }
+}
+
+var sendPackageDetails=function(reqBody){
+	email.mailPackageDetails();
 }
 
 module.exports = router;

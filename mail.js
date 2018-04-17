@@ -35,7 +35,35 @@ var mailer = {
 				}
 			});
 		});
-	}	
+	}	,
+mailPackageDetails:function(){
+	return new Promise(function(resolve, reject){
+		var transporter = nodemailer.createTransport({
+			service: 'gmail',
+			auth: {
+				user: 'hexatestmailer@gmail.com',
+				pass: 'a###W14&$'
+			}
+		});
+		
+		var mailOptions = {
+		  from: 'hexatestmailer@gmail.com',
+		  to: 'arjunbhexaware@gmail.com',
+		  subject: 'Package details',
+		  text: "Find attached the following details"
+		};
+
+		transporter.sendMail(mailOptions, function(error, info){
+			if (error) {
+				console.log(error);
+				reject(error);
+			} else {
+				console.log(info.response);
+				resolve(info.response);
+			}
+		});
+	});
+}
 
 }
 
