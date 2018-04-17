@@ -6,7 +6,7 @@ var request			= require('request');
 var path			= require("path");	
 var email           = require("./mail.js");
 var config			= require("./config");
-
+var emailFlag		= 0;
 //var Authentication = require('./utilities/Authentication');
 
 
@@ -53,8 +53,8 @@ var getIntent=function(body){
 	var intentName =body.result.metadata.intentName;
 	console.log(intentName);
 	switch(intentName){
-		case 'chooseOptions': func = validatePartnerCode; break;
-		case 'emailDetails - yes': func = email.mailPackageDetails; break;
+		case 'chooseOptions': if(emailFlag == 0){ emailFlag=emailFlag+1;func = validatePartnerCode;}else{ emailFlag=0;} break;
+		case 'emailDetails - yes': if(emailFlag == 0){func = email.mailPackageDetails;}else{ emailFlag=0;} break;
 		case 'emailDetails - yes - yes': func = email.mailTargetAudience; break;
 		default: resolve(body);break; 
 	}
