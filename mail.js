@@ -4,6 +4,7 @@ var path		= require('path');
 var mailer = {
 	mailTargetAudience:function(attachmentFile){
 		return new Promise(function(resolve, reject){
+			console.log("------------------------mailTargetAudience--------------------");
 			var transporter = nodemailer.createTransport({
 				service: 'gmail',
 				auth: {
@@ -30,7 +31,6 @@ var mailer = {
 					console.log(error);
 					reject(error);
 				} else {
-					console.log(info.response);
 					resolve(body);
 				}
 			});
@@ -38,6 +38,7 @@ var mailer = {
 	}	,
 mailPackageDetails:function(reqBody){
 	return new Promise(function(resolve, reject){
+		console.log("***************************mailTargetAudience***************************");
 		var transporter = nodemailer.createTransport({
 			service: 'gmail',
 			auth: {
