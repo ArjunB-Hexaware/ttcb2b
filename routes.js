@@ -88,7 +88,7 @@ var easyQuote = function(reqBody){
 }
 
 var validatePartnerCode=function(reqBody){
-
+console.log("Lenght --- >",reqBody.result.parameters.number.length);
 	if(reqBody.result.parameters.number.length == 8){
 		return new Promise(function(resolve, reject){
 		resolve({		
