@@ -53,7 +53,7 @@ mailPackageDetails:function(reqBody){
 		  from: 'hexatestmailer@gmail.com',
 		  to: 'arjunbhexaware@gmail.com',
 		  subject: 'Package details',
-		  text: "Find attached the following details"
+		  html: "<b>Find attached the following details</b> <div>test</div>"
 		};
 
 		transporter.sendMail(mailOptions, function(error, info){
