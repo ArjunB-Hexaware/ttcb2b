@@ -59,13 +59,14 @@ var getIntent=function(body){
 		case 'emailDetails - yes - yes': func = email.mailTargetAudience; break;
 		default: resolve(body);break; 
 	}*/
-	if(intentName == 'chooseOptions'){
+	func=body;
+	if(intentName === 'chooseOptions'){
 		func = validatePartnerCode;
 	}else{
-		if(intentName == 'emailDetails - yes'){
+		if(intentName === 'emailDetails - yes'){
 			func = email.mailPackageDetails;
 		}else{
-			if(intentName == 'emailDetails - yes - yes'){
+			if(intentName === 'emailDetails - yes - yes'){
 				func = email.mailTargetAudience;
 			}else{
 				resolve(body);
