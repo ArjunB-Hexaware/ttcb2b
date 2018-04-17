@@ -17,7 +17,7 @@ var mailer = {
 			  from: 'hexatestmailer@gmail.com',
 			  to: 'arjunbhexaware@gmail.com',
 			  subject:'Target Audience',
-			  html: 'Hi ,<div>Greetings from <b>TTC</b>!!</div><div> Please find attached the target audience for your area</div><div>Regards,</div><div>TTC Team</div>',
+			  html: 'Hi ,<div>Greetings from <b>TTC</b>!!</div><div style="margin-top:8px"> Please find attached the target audience for your area</div><div style="margin-top:8px">Regards,</div><div>TTC Team</div>',
 			  attachments:[
 				{
 					filename:fileName,
