@@ -54,7 +54,7 @@ var getIntent=function(body){
 	console.log(intentName);
 	switch(intentName){
 		case 'chooseOptions': if(emailFlag == 0){ emailFlag=emailFlag+1;func = validatePartnerCode;}else{ emailFlag=0;} break;
-		case 'emailDetails - yes': if(emailFlag == 0){func = email.mailPackageDetails;}else{ emailFlag=0;} break;
+		case 'emailDetails - yes': if(emailFlag == 0){emailFlag=emailFlag+1;func = email.mailPackageDetails;}else{ emailFlag=0;} break;
 		case 'emailDetails - yes - yes': func = email.mailTargetAudience; break;
 		default: resolve(body);break; 
 	}
