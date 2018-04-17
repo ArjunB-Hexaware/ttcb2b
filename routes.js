@@ -28,6 +28,7 @@ router.post('/botHandler',/*Authentication.SetRealm('botHandler'), Authenticatio
 			case 'easyQuote':func = easyQuote;break;
 			case 'feedBackOptionsIntent':func = feedBackOptionsIntent;break;
 			case 'feedBackNoIntent':func = feedBackNoIntent; break;
+			case 'chooseOptions': func = validatePartnerCode; break;
 		}
 		func(req.body)
 		.then((resp)=>{
@@ -84,7 +85,9 @@ var easyQuote = function(reqBody){
 	});
 }
 
-
+var validatePartnerCode=function(reqBody){
+	console.log(reqBody);
+}
 
 module.exports = router;
 
