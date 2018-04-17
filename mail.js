@@ -39,7 +39,7 @@ var mailer = {
 			});
 		});
 	}	,
-mailPackageDetails:function(){
+mailPackageDetails:function(reqBody){
 	return new Promise(function(resolve, reject){
 		var transporter = nodemailer.createTransport({
 			service: 'gmail',
@@ -62,10 +62,7 @@ mailPackageDetails:function(){
 				reject(error);
 			} else {
 				console.log(info.response);
-				resolve({
-					"speech": "Mail has been sent to you registered emailID",
-						"displayText":"Mail has been sent to you registered emailID"
-				});
+				resolve(reqBody);
 			}
 		});
 	});

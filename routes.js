@@ -5,7 +5,7 @@ var fs 				= require("fs");
 var request			= require('request');
 var path			= require("path");	
 var email           = require("./mail.js");
-
+var config			= require("./config");
 
 //var Authentication = require('./utilities/Authentication');
 
@@ -20,6 +20,56 @@ router.get('/chat', function(req, res) {
   res.redirect('/chat.html');
 });
 
+
+router.post('/dialogflowAPI',function(req, res){
+	var options = { 
+		method: 'POST',
+		url: config.dialogflowAPI,
+		headers: {
+			"Authorization": "Bearer " + config.accessToken
+		},
+		body:req.body,			
+		json: true 
+	}; 			
+	request(options, function (error, response, body) {
+		if(error){
+			res.json({error:"error in chat server api call"}).end();
+		}else{		
+			getIntent(body)
+			.then((resp)=>{
+				res.json(resp).end();
+			})
+			.catch((err)=>{
+				res.json(err).end();
+			})	
+			
+
+		}		
+	});			
+})
+
+var getIntent=function(body){
+	return new Promise(function(resolve, reject){
+	var intentName =body.result.metadata.intentName;
+	console.log(intentName);
+	switch(intentName){
+		case 'chooseOptions': func = validatePartnerCode; break;
+		case 'emailDetails - yes': func = email.mailPackageDetails; break;
+		case 'emailDetails - yes - yes': func = email.mailTargetAudience; break;
+		default: resolve(body);break; 
+	}
+	func(body)
+	.then((resp)=>{
+		console.log(resp);
+		//res.json(resp).end();	
+		resolve(resp);
+	})
+	.catch((err)=>{
+		//res.json(err).end();	
+		reject(err);
+	});
+});
+}
 
 router.post('/botHandler',/*Authentication.SetRealm('botHandler'), Authentication.BasicAuthentication, */function(req, res){
 	//console.log('Dialogflow Request headers: ' + JSON.stringify(req.headers));
@@ -89,23 +139,29 @@ var easyQuote = function(reqBody){
 }
 
 var validatePartnerCode=function(reqBody){
-console.log("Lenght --- >",reqBody.result.parameters.number,reqBody.result.parameters.number.length);
-	if(reqBody.result.parameters.number.toString().length == 8){
-		return new Promise(function(resolve, reject){
-		resolve({		
-			"speech": "",
-			"displayText":""
-		});
-	});
-	}else{
-		return new Promise(function(resolve, reject){
-		resolve({		
-			"speech": "Partner code should be a 8 digit number",
-			"displayText":"Partner code should be a 8 digit number"
+
+	return new Promise(function(resolve, reject){
+		console.log("Lenght --- >",reqBody.result.parameters.number,reqBody.result.parameters.number.length);
+		if(reqBody.result.parameters.number.toString().length == 8){
 			
-		});
+			resolve(reqBody);	
+		}else{
+					resolve({	
+						result:{					
+					"fulfillment": {
+						"speech": "Partner code should be a 8 digit number",
+						"displayText":"Partner code should be a 8 digit number"
+				 	 },
+				  "score": 1
+				},
+				"status": {
+				  "code": 200,
+				  "errorType": "success",
+				  "webhookTimedOut": false
+				},
+			});
+		}
 	});
-}
 }
 
 
