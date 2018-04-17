@@ -52,7 +52,7 @@ router.post('/dialogflowAPI',function(req, res){
 var getIntent=function(body){
 	return new Promise(function(resolve, reject){
 	var intentName =body.result.metadata.intentName;
-	console.log(intentName);
+	console.log("+++++++++++++++++++Intentname ++++++++++++++",intentName);
 	switch(intentName){
 		case 'chooseOptions': if(emailPackageFlag == 0){ emailPackageFlag=emailPackageFlag+1;func = validatePartnerCode;}else{ emailPackageFlag=0;} break;
 		case 'emailDetails - yes': if(emailAudienceFlag == 0){emailAudienceFlag=emailAudienceFlag+1;func = email.mailPackageDetails;}else{ emailAudienceFlag=0;} break;
