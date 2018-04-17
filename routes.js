@@ -1,12 +1,13 @@
-var express 		= require('express');
-var router			= express.Router();	 
+var express 			= require('express');
+var router				= express.Router();	 
 
-var fs 				= require("fs");	
-var request			= require('request');
-var path			= require("path");	
-var email           = require("./mail.js");
-var config			= require("./config");
-var emailFlag		= 0;
+var fs 					= require("fs");	
+var request				= require('request');
+var path				= require("path");	
+var email           	= require("./mail.js");
+var config				= require("./config");
+var emailPackageFlag	= 0;
+var emailAudienceFlag	= 0;
 //var Authentication = require('./utilities/Authentication');
 
 
@@ -53,8 +54,8 @@ var getIntent=function(body){
 	var intentName =body.result.metadata.intentName;
 	console.log(intentName);
 	switch(intentName){
-		case 'chooseOptions': if(emailFlag == 0){ emailFlag=emailFlag+1;func = validatePartnerCode;}else{ emailFlag=0;} break;
-		case 'emailDetails - yes': if(emailFlag == 0){emailFlag=emailFlag+1;func = email.mailPackageDetails;}else{ emailFlag=0;} break;
+		case 'chooseOptions': if(emailPackageFlag == 0){ emailPackageFlag=emailPackageFlag+1;func = validatePartnerCode;}else{ emailPackageFlag=0;} break;
+		case 'emailDetails - yes': if(emailAudienceFlag == 0){emailAudienceFlag=emailAudienceFlag+1;func = email.mailPackageDetails;}else{ emailAudienceFlag=0;} break;
 		case 'emailDetails - yes - yes': func = email.mailTargetAudience; break;
 		default: resolve(body);break; 
 	}
