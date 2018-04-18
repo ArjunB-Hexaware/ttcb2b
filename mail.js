@@ -4,7 +4,7 @@ var path		= require('path');
 var mailer = {
 	mailTargetAudience:function(reqBody){
 		return new Promise(function(resolve, reject){
-			console.log("------------------------mailTargetAudience--------------------");
+		
 			var transporter = nodemailer.createTransport({
 				service: 'gmail',
 				auth: {
@@ -49,7 +49,7 @@ mailPackageDetails:function(reqBody){
 		
 		var mailOptions = {
 		  from: 'hexatestmailer@gmail.com',
-		  to: 'arjunbhexaware@gmail.com',
+		  to: 'arjunbhexaware@gmail.com,arjunb@hexaware.com',
 		  subject: 'Package details',
 		  html: "<div>Hi,</div><div style='margin-left:10px;margin-bottom:5px'>Greetings from TTC!!!</div><center>Package info- <i>WONDERS OF ITALY *NEW* - 11 DAYS, 9 CITIES</i></center><div style='margin-top:15px;'><b>ABOUT THIS TRIP</b></div><div>Pay tribute to the extraordinary masterpieces of Italy's greats - the captivating arias of Puccini and splendour of da Vinci, Michelangelo and Botticelli's talents in their full glory throughout this enduring exploration of Italy's alluring art, architecture and old-world charm. See the city of one hundred churches, the imposing towers of picturesque San Gimignano and the seas of pastel pinks, yellows and blues that cling dramatically to the Cinque Terre's Ligurian cliffs.</div><ul><li>10 NIGHTS - accommodation</li><li>15 MEALS - 10 hot buffet breakfasts,1 lunch (Be My Guest),4 dinners with local wine</li><li>ON-TRIP TRANSPORT - All transport shown.</li></ul><div>Regards,</div><div>TTC Team</div>"
 		};
