@@ -174,8 +174,12 @@ define(["utils","settings"], function (utils,settings) {
 					
 				}
                 apiquickRepliesHtml +=`<div class="quick-replies-buttons">`
-				for(let j=0;j<qReply[i].replies.length;j++){					
-					apiquickRepliesHtml +=`<button type="button"  class="btn pmd-btn-outline pmd-ripple-effect btn-info .pmd-btn-fab apiQuickreplybtnPayload" data-apiquickRepliesPayload="${qReply[i].replies[j]}">${qReply[i].replies[j]}</button>`
+				for(let j=0;j<qReply[i].replies.length;j++){
+					if(settings.eventAllow.indexOf(qReply[i].replies[j])>=0){	
+						apiquickRepliesHtml +=`<button type="button"  class="btn pmd-btn-outline pmd-ripple-effect btn-info .pmd-btn-fab apiQuickreplybtnPayload" data-apiquickRepliesPayload="${qReply[i].replies[j]}">${qReply[i].replies[j]}</button>`
+					}else{
+						apiquickRepliesHtml +=`<button type="button"  class="btn disabled pmd-btn-outline pmd-ripple-effect btn-info .pmd-btn-fab apiQuickreplybtnPayload" data-apiquickRepliesPayload="${qReply[i].replies[j]}">${qReply[i].replies[j]}</button>`
+					}
 				}
             }
         }
