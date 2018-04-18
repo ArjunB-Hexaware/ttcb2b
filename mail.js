@@ -21,7 +21,7 @@ var mailer = {
 			  attachments:[
 				{
 					filename:fileName,
-					content:fs.createReadStream('ClientData.xlsx')		
+					content:fs.createReadStream('Target-audience.xlsx')		
 				}
 			  ]
 			};
@@ -38,7 +38,6 @@ var mailer = {
 	}	,
 mailPackageDetails:function(reqBody){
 	return new Promise(function(resolve, reject){
-		console.log("***************************mailTargetAudience***************************");
 		var transporter = nodemailer.createTransport({
 			service: 'gmail',
 			auth: {
