@@ -367,6 +367,7 @@ html,body{
 }
 
 .pmd-btn-outline.btn-info{
+	padding: 4px;
   color: #eb2542;
   background-color: transparent;
   border: solid 1px #333;
