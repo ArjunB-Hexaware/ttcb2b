@@ -570,3 +570,9 @@ img.center {
   border-width: 10px;
   margin-top: -2px;
 }
+
+/*Carousel scroll*/
+.carousel-subtitle{
+height: 140px;
+    overflow-y: auto;
+}
