@@ -137,14 +137,14 @@ html,body{
 .carousel-custom {
   border-radius: 15px;
   padding: 0% 0% 0% 0%;
-  margin: 15%;
+  margin: 5% 15% 5% 15%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.21), 0 6px 20px 0 rgba(0, 0, 0, 0);
 }
 
 .custom-image-wrap {
   display: block;
     padding: 4px;
-    margin-bottom: -5%;
+    margin-bottom: 2%;
     line-height: 1.42857143;
     background-color: #fff;
     border: 1px solid #ddd;
@@ -182,8 +182,15 @@ html,body{
   font-weight: 0%;
   margin: 2% 2% 0% -4%;
 }
-
-.btn-carousel {
+.btn-carousel{
+	min-width: 86%;
+    padding: 2% 3%;
+    margin: 3% 0% 2% -43%;
+    border-radius: 5px;
+    bottom: 0px !important;
+    position: absolute;
+}
+.btn-carousel11 {
   min-width: 96%;
   padding: 2% 3%;
   margin: 3% 0% -2% 2%;
@@ -359,19 +366,30 @@ html,body{
   max-width: 420px;
 }
 
-.pmd-btn-outline.btn-info {
+.pmd-btn-outline.btn-info{
   color: #eb2542;
   background-color: transparent;
   border: solid 1px #333;
   text-transform: none;
-  outline: none;
+	outline: none;
+	font-weight:bold;
 }
+.commonHeight{
+	border-radius: 0px 0px 15px 15px;
+	height:200px;	
+	background-color: white;
+}
+.disabled{
+      color: #fff !important;
+    background-color: #eb2542 !important;
+    border: solid 1px #333!important;
+}
+
 .pmd-btn-outline.btn-info:hover, .pmd-btn-outline.btn-info:focus {
   color: #fff;
   background-color: #eb2542;
   border: solid 1px #eb2542;
 }
-
 
 .carousel-control {
     /*background-image: -webkit-linear-gradient(left,rgba(79,146,171,.95) 0,rgba(79,146,171,.0001) 100%);
