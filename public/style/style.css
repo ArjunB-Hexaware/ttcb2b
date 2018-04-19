@@ -160,7 +160,8 @@ html,body{
 .carousel-title {
   font-size: 105%;
   font-weight: bold;
-  margin: 2% 2% 0% 2%
+  /*margin: 2% 2% 0% 2%;*/
+	margin: -5% 2% 0% 2%;
 }
 
 .carousel-subtitle {
