@@ -57,7 +57,7 @@ mailPackageDetails:function(reqBody){
 			attachments: [{
         filename: 'italy-wonders.png',
         //path: './public/images/italy-wonders',
-	content:fs.createReadStream('./public/images/italy-wonders.png')
+	content:fs.createReadStream('./public/images/italy-wonders.png'),
         cid: 'italy@img' //same cid value as in the html img src
     }]
 		};
