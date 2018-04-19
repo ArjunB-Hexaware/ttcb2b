@@ -575,6 +575,7 @@ img.center {
 
 /*Carousel scroll*/
 .carousel-subtitle{
-height: 140px;
+height: 155px;
     overflow-y: auto;
+	
 }
