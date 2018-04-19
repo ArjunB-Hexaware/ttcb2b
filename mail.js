@@ -62,8 +62,8 @@ mailPackageDetails:function(reqBody){
         cid: 'italy@img' //same cid value as in the html img src
     },
 				     {
-        filename: 'italy-package.png',
-        path: './public/images/italy-package.png',
+        filename: 'italy-package.PNG',
+        path: './public/images/italy-package.PNG',
 	//content:fs.createReadStream('./public/images/italy-wonders.png'),
         cid: 'italyPackage@img' //same cid value as in the html img src
     }]
