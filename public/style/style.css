@@ -158,16 +158,18 @@ html,body{
 }
 
 .carousel-title {
-  font-size: 105%;
+  font-size: 95%;
   font-weight: bold;
-  /*margin: 2% 2% 0% 2%;*/
-	margin: -5% 2% 0% 2%;
+  margin: 2% 2% 0% 2%;
+  height:30px;
 }
 
 .carousel-subtitle {
   font-size: 85%;
   font-weight: 0%;
   margin: 2% 2% 3% 2%;
+  overflow-y:auto;
+  height:180px;
 }
 
 .card-title {
@@ -295,7 +297,7 @@ html,body{
      color: #f5f5f5;
      font-size: .875rem;
      overflow-wrap: break-word;
-     background-color: #eb2542;
+     background-color: #b11116;
      max-width: 75%;
      border-radius: 10px;
      display: inline-block;
@@ -325,7 +327,7 @@ html,body{
 
 .carousel-body {
   background-color: white;
-  padding: 8px 0px;
+  padding: 8px 12px;
 }
 
 .pmd-card-title {
@@ -353,7 +355,7 @@ html,body{
   color: #f5f5f5;
   font-size: .875rem;
   overflow-wrap: break-word;
-  background-color: #eb2542;
+  background-color: #b11116;
   max-width: 75%;
   border-radius: 10px;
   display: inline-block;
@@ -368,8 +370,7 @@ html,body{
 }
 
 .pmd-btn-outline.btn-info{
-	padding: 4px;
-  color: #eb2542;
+  color: #b11116;
   background-color: transparent;
   border: solid 1px #333;
   text-transform: none;
@@ -377,20 +378,19 @@ html,body{
 	font-weight:bold;
 }
 .commonHeight{
-	border-radius: 0px 0px 15px 15px;
-	height:200px;	
-	background-color: white;
+	height:250px;	
+	background-color: white;	
 }
 .disabled{
       color: #fff !important;
-    background-color: #eb2542 !important;
+    background-color: #b11116 !important;
     border: solid 1px #333!important;
 }
 
 .pmd-btn-outline.btn-info:hover, .pmd-btn-outline.btn-info:focus {
   color: #fff;
-  background-color: #eb2542;
-  border: solid 1px #eb2542;
+  background-color: #b11116;
+  border: solid 1px #b11116;
 }
 
 .carousel-control {
@@ -552,7 +552,7 @@ img.center {
   border-left-color: #333;*/
   
   right: 100%;
-    border-right-color: #eb2542 !important;
+    border-right-color: #b11116 !important;
 }
 
 .beforeAfter::after,.beforeAfter:before {
@@ -571,11 +571,4 @@ img.center {
 .beforeAfter::before {
   border-width: 10px;
   margin-top: -2px;
-}
-
-/*Carousel scroll*/
-.carousel-subtitle{
-height: 155px;
-    overflow-y: auto;
-	
 }
