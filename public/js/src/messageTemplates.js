@@ -167,13 +167,13 @@ define(["utils","settings"], function (utils,settings) {
 						apiquickRepliesHtml+=`<p class="list-group-item-quick-reply-space beforeAfter">${qReply[i].title}</p>`
 					}					
 				}else{
-					//apiquickRepliesHtml+=	`<img style="border-radius:50%;float: left;margin-right: 10px;" width="40" height="40" src='avatar/blank.ico'/>`
+					apiquickRepliesHtml+=	`<img style="border-radius:50%;float: left;margin-right: 10px;" width="40" height="40" src='avatar/blank.ico'/>`
 					if(qReply[i].title.trim().length){
-						apiquickRepliesHtml+=`<img style="border-radius:50%;float: left;margin-right: 10px;" width="40" height="40" src='avatar/blank.ico'/><p class="list-group-item-quick-reply-space">${qReply[i].title}</p>`
+						apiquickRepliesHtml+=`<p class="list-group-item-quick-reply-space">${qReply[i].title}</p>`
 					}
 					
 				}
-                apiquickRepliesHtml +=`<div class="quick-replies-buttons" style="align-items: center;justify-content: center;">`
+                apiquickRepliesHtml +=`<div class="quick-replies-buttons" style="display: inline-block;align-items: center;justify-content: center;">`
 				for(let j=0;j<qReply[i].replies.length;j++){
 					if(settings.eventAllow.indexOf(qReply[i].replies[j])>=0){	
 						apiquickRepliesHtml +=`<button type="button"  class="btn pmd-btn-outline pmd-ripple-effect btn-info .pmd-btn-fab apiQuickreplybtnPayload" data-apiquickRepliesPayload="${qReply[i].replies[j]}">${qReply[i].replies[j]}</button>`
@@ -213,18 +213,18 @@ define(["utils","settings"], function (utils,settings) {
 						if(data.payload[i].imageUrl){							
                          carousel+=  `<a href="#" id="carousel-thumbnail-modal" class="thumbnail custom-image-wrap">
                                 <img data-target="#center-dialog" data-toggle="modal" class="img-circle" src="${data.payload[i].imageUrl}" data-src="${data.payload[i].imageUrl}" alt="Image" style="max-width:100%;">
-                            </a><div class="commonHeight"><h3 class="carousel-body" style="margin-top:4px !important"><p class="carousel-title">`+methods.bullets(data.payload[i].title)+`</p>
-                            <p class="carousel-subtitle carouselScrollbar">`+methods.bullets(data.payload[i].subtitle)+`</p></div>`
+                            </a><div class="commonHeight"><div class="carouselScrollbar" style="overflow:auto"><h3 class="carousel-body"><p class="carousel-title">`+methods.bullets(data.payload[i].title)+`</p>
+                            <p class="carousel-subtitle">`+methods.bullets(data.payload[i].subtitle)+`</p>`
 						}else{
-                         carousel+= `<div class="commonHeight" style="border-radius:15px;"><h3 class="carousel-body" style="border-radius:15px;margin-top:4px !important"><p class="carousel-title">`+methods.bullets(data.payload[i].title)+`</p>
-                            <p class="carousel-subtitle carouselScrollbar">`+methods.bullets(data.payload[i].subtitle)+`</p></div>`
+                         carousel+= `<div class="commonHeight" style="border-radius:15px !important"><div class="carouselScrollbar" style="overflow:auto"><h3 class="carousel-body"><p class="carousel-title">`+methods.bullets(data.payload[i].title)+`</p>
+                            <p class="carousel-subtitle">`+methods.bullets(data.payload[i].subtitle)+`</p>`
 						}
                 if (data.buttons && data.payload[i].type == 1) {
                     for (var j = 0; j < data.payload[i].buttons.length; j++) {
                         carousel += `<button type="button" class="btn-carousel btn-info pmd-btn-outline caroselresponsepayload button-custom" data-carouselpayloadButton = "${data.payload[i].buttons[j].postback}" >${data.payload[i].buttons[j].text}</button>`
                     }
                 }
-                carousel += `</div>
+                carousel += `</div></div></div>
                     </div><!--.row-->
                 </div> <!--.item-->`;
                 index = 1;
@@ -236,18 +236,18 @@ define(["utils","settings"], function (utils,settings) {
 					  if(data.payload[i].imageUrl){							
                           carousel+=`<a href="#" class="thumbnail custom-image-wrap">
                               <img class="img-circle" src="${data.payload[i].imageUrl}" alt="Image" style="max-width:100%;">
-                          </a><div class="commonHeight" style="border-radius: 0px 0px 15px 15px;"><h3 class="carousel-body" style="border-radius: 0px 0px 15px 15px;margin-top:4px !important"><p class="carousel-title">`+methods.bullets(data.payload[i].title)+`</p>
-                          <p class="carousel-subtitle carouselScrollbar">`+methods.bullets(data.payload[i].subtitle)+`</p>`
+                          </a><div class="commonHeight "><div style="overflow:auto" class="carouselScrollbar"><h3 class="carousel-body"><p class="carousel-title">`+methods.bullets(data.payload[i].title)+`</p>
+                          <p class="carousel-subtitle">`+methods.bullets(data.payload[i].subtitle)+`</p>`
 					  }else{
-						carousel+=`<div class="commonHeight" style="border-radius:15px;"><h3 class="carousel-body" style="border-radius:15px;margin-top:4px !important"> <p class="carousel-title">`+methods.bullets(data.payload[i].title)+`</p>
-                          <p class="carousel-subtitle carouselScrollbar">`+methods.bullets(data.payload[i].subtitle)+`</p>`
+						carousel+=`<div class="commonHeight" style="border-radius:15px !important"><div style="overflow:auto" class="carouselScrollbar"><h3 class="carousel-body"><p class="carousel-title">`+methods.bullets(data.payload[i].title)+`</p>
+                          <p class="carousel-subtitle">`+methods.bullets(data.payload[i].subtitle)+`</p>`
 					  }
               if (data.buttons && data.payload[i].type == 1) {
                   for (var j = 0; j < data.payload[i].buttons.length; j++) {
                       carousel += `<button type="button" class="btn-carousel btn-info pmd-btn-outline caroselresponsepayload button-custom" data-carouselpayloadButton = "${data.payload[i].buttons[j].postback}" >${data.payload[i].buttons[j].text}</button>`
                   }
               }
-              carousel += `</div></div>
+              carousel += `</div></div></div>
                   </div><!--.row-->
               </div> <!--.item-->`;
               index = 1;
