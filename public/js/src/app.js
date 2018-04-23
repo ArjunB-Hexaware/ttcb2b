@@ -59,12 +59,22 @@ define(['jquery', 'settings', 'apiService', 'utils'], function ($, config, apiSe
 			msg_container.removeClass('hidden');
 		}
 		$("a#btn-send-message").click(function (e) {
+			//sendMessage($("#btn-input"), e);
+			if($("#btn-input").val()==""){
+				return false;
+			}else{
 			sendMessage($("#btn-input"), e);
+			}
 		});
 		//Chatbox Send message
 		$("#btn-input").keypress(function (e) {
-			if (e.which == 13) {
+			/*if (e.which == 13) {
 				sendMessage($(this), e);
+			}*/
+			if($("#btn-input").val()==""){
+				return false;
+			}else{
+			sendMessage($(this), e);
 			}
 		});				
 		//Quick Replies payload button Click
