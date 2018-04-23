@@ -16,7 +16,7 @@ var mailer = {
 			var mailOptions = {
 			  from: 'hexatestmailer@gmail.com',
 			  //to: 'arjunbhexaware@gmail.com',
-			  to:'wilfredf@hexaware.com,saisub@hexaware.com,omprakashr@hexaware.com,arjunb@hexaware.com',
+			  to:'wilfredf@hexaware.com,saisub@hexaware.com,omprakashr@hexaware.com,ravindrag@hexaware.com,arjunb@hexaware.com',
 			  subject:'Target Audience',
 			  html: 'Hi ,<div>Greetings from <b>TTC</b>!!</div><div style="margin-top:8px"> Please find attached the target audience for your area</div><div style="margin-top:8px">Regards,</div><div>TTC Team</div>',
 			  attachments:[
@@ -50,7 +50,7 @@ mailPackageDetails:function(reqBody){
 		var mailOptions = {
 		  from: 'hexatestmailer@gmail.com',
 		  //to: 'arjunbhexaware@gmail.com,arjunb@hexaware.com',
-		  to:'wilfredf@hexaware.com,saisub@hexaware.com,omprakashr@hexaware.com,arjunb@hexaware.com',
+		  to:'wilfredf@hexaware.com,saisub@hexaware.com,omprakashr@hexaware.com,ravindrag@hexaware.com,arjunb@hexaware.com',
 		  subject: 'Package details',
 		  //html: "<div>Hi,</div><div style='margin-left:10px;margin-bottom:5px'>Greetings from TTC!!!</div><center>Package info- <i>WONDERS OF ITALY *NEW* - 11 DAYS, 9 CITIES</i></center><div style='margin-top:15px;'><b>ABOUT THIS TRIP</b></div><div>Pay tribute to the extraordinary masterpieces of Italy's greats - the captivating arias of Puccini and splendour of da Vinci, Michelangelo and Botticelli's talents in their full glory throughout this enduring exploration of Italy's alluring art, architecture and old-world charm. See the city of one hundred churches, the imposing towers of picturesque San Gimignano and the seas of pastel pinks, yellows and blues that cling dramatically to the Cinque Terre's Ligurian cliffs.</div><ul><li>10 NIGHTS - accommodation</li><li>15 MEALS - 10 hot buffet breakfasts,1 lunch (Be My Guest),4 dinners with local wine</li><li>ON-TRIP TRANSPORT - All transport shown.</li></ul><div>Regards,</div><div>TTC Team</div>"
 		    //html:  "<div>Hi,</div><div style='margin-left:10px;margin-bottom:5px'>Greetings from TTC!!!</div><center>Package info- <i>WONDERS OF ITALY *NEW* - 11 DAYS, 9 CITIES</i></center><center><img src='cid:italy@img' alt='Wonders-Italy' height='160' width='160' align='middle'></center><div style='margin-top:15px;'><b>ABOUT THIS TRIP</b></div><div>Pay tribute to the extraordinary masterpieces of Italy's greats - the captivating arias of Puccini and splendour of da Vinci, Michelangelo and Botticelli's talents in their full glory throughout this enduring exploration of Italy's alluring art, architecture and old-world charm. See the city of one hundred churches, the imposing towers of picturesque San Gimignano and the seas of pastel pinks, yellows and blues that cling dramatically to the Cinque Terre's Ligurian cliffs.</div><center><img src='cid:italyPackage@img' alt='Wonders-package' align='middle'></center><div>Regards,</div><div>TTC Team</div>",
