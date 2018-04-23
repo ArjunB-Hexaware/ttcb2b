@@ -68,14 +68,10 @@ define(['jquery', 'settings', 'apiService', 'utils'], function ($, config, apiSe
 		});
 		//Chatbox Send message
 		$("#btn-input").keypress(function (e) {
-			/*if (e.which == 13) {
+			if (e.which == 13) {
 				sendMessage($(this), e);
-			}*/
-			if($("#btn-input").val()==""){
-				return false;
-			}else{
-			sendMessage($(this), e);
 			}
+			
 		});				
 		//Quick Replies payload button Click
 		$(document).on('click', '.QuickreplybtnPayload', function (e) {			
