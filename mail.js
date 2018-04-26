@@ -77,7 +77,7 @@ mailPackageDetails:function(reqBody){
 				reject(error);
 			} else {
 				console.log(info.response);
-				resolve(info);
+				resolve(reqBody);
 			}
 		});
 		});
