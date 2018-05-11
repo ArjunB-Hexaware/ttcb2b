@@ -17,6 +17,10 @@ router.get('/', function(req, res) {
   res.redirect("/home.html");
 });
 
+router.post('/myTest',function(req,res){
+console.log("MY TEST SUCCESSSFULLYY DONE");
+})
+
 router.get('/chat', function(req, res) {
   res.redirect('/chat.html');
 });
