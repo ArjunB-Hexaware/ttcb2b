@@ -10,9 +10,7 @@ redirect(app);
 //global.recentInput = "";
 // Add headers
 
-app.post('/myTest',function(req,res){
-console.log("MY TEST SUCCESSSFULLYY DONE");
-})
+
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
