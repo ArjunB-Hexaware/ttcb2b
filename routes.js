@@ -18,7 +18,33 @@ router.get('/', function(req, res) {
 });
 
 router.post('/myTest',function(req,res){
-console.log("MY TEST SUCCESSSFULLYY DONE");
+console.log("MY TEST SUCCESSSFULLYY DONE-123");
+	res.json({
+    "conversationToken": "",
+    "expectUserResponse": true,
+    "expectedInputs": [
+        {
+            "inputPrompt": {
+                "richInitialPrompt": {
+                    "items": [
+                        {
+                            "simpleResponse": {
+                                "textToSpeech": "Howdy! I can tell you fun facts about almost any number, like 42. What do you have in mind?",
+                                "displayText": "Howdy! I can tell you fun facts about almost any number. What do you have in mind?"
+                            }
+                        }
+                    ],
+                    "suggestions": []
+                }
+            },
+            "possibleIntents": [
+                {
+                    "intent": "actions.intent.TEXT"
+                }
+            ]
+        }
+    ]
+}).end();
 })
 
 router.get('/chat', function(req, res) {
